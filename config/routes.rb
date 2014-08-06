@@ -3,11 +3,12 @@ Rails.application.routes.draw do
 
   get 'info', to: 'pages#info'
   get 'contact', to: 'pages#contact'
-  get 'registration', to: 'pages#registration'
+  get 'registration', to: 'admin/registrations#new'
   
   namespace :admin do
      root :to => "users#index"
-    resources :users
+     resources :users
+     resources :registrations
   end
 
   devise_for :users

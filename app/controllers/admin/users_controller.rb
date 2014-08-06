@@ -35,7 +35,7 @@ class Admin::UsersController < ApplicationController
       if @user.update(user_params)
         redirect_to @user, notice: 'User was successfully updated.' 
       else
-        render :edit 
+        render :edit, alert: @user.errors.full_messages.to_sentence
       end
    end
 

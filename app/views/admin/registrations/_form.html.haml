@@ -1,0 +1,44 @@
+= form_for [:admin, @registration], :html => { :class => 'form-horizontal' } do |f|
+  .form-group
+    = f.label :name, :class => 'control-label'
+    .controls
+      = f.text_field :name, :class => 'form-control'
+  .form-group
+    = f.label :last_name, :class => 'control-label'
+    .controls
+      = f.text_field :last_name, :class => 'form-control'
+  .form-group
+    = f.label :email, :class => 'control-label'
+    .controls
+      = f.text_field :email, :class => 'form-control'
+  .form-group
+    = f.label :phone, :class => 'control-label'
+    .controls
+      = f.text_field :phone, :class => 'form-control'
+  .form-group
+    = f.label :country, :class => 'control-label'
+    .controls
+      = f.select :country, Registration::COUNTRIES, {}, :class => 'form-control'
+  .form-group
+    = f.label :city, :class => 'control-label'
+    .controls
+      = f.select :city, Registration::CITIES, {}, :class => 'form-control'
+  .form-group
+    = f.label :days, :class => 'control-label'
+    .controls
+      = f.select :days, Registration::DAYS, {}, :class => 'form-control'
+  .form-group
+    = f.check_box :member
+    = f.label :member, :class => 'control-label'
+  .form-group
+    = f.check_box :need_place
+    = f.label :need_place, :class => 'control-label'
+  .form-group
+    = f.label :comment, :class => 'control-label'
+    .controls
+      = f.text_area :comment, :class => 'form-control'
+  - if user_signed_in?
+    = f.submit nil, :class => 'btn btn-primary'
+    = link_to t('.cancel', :default => t("helpers.links.cancel")), admin_registrations_path, :class => 'btn btn-default'
+  - else
+    = f.submit 'Registration', :class => 'btn btn-primary'
