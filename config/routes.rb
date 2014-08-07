@@ -6,7 +6,11 @@ Rails.application.routes.draw do
   get 'registration', to: 'admin/registrations#new'
   
   namespace :admin do
-     root :to => "users#index"
+     root :to => "main#index"
+     
+     get 'report', to: 'main#report'
+     get 'search', to: 'main#search'
+     
      resources :users
      resources :registrations
   end

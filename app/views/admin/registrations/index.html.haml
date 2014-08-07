@@ -1,23 +1,28 @@
 - model_class = Registration
 .page-header
   %h1=t '.title', :default => model_class.model_name.human.pluralize.titleize
+.row
+    %h2 Expandable when is Focus
+    %h3 Mac Search Style
+    .span12
+      %form#custom-search-form.form-search.form-horizontal.pull-right
+        .input-append.span12
+          %input.search-query.mac-style{:placeholder => "Search", :type => "text"}
+            %button.btn{:type => "submit"}
+              %i.icon-search
 %table.table.table-striped
   %thead
     %tr
-      %th= model_class.human_attribute_name(:id)
-      %th= model_class.human_attribute_name(:name)
-      %th= model_class.human_attribute_name(:last_name)
+      %th Name
       %th= model_class.human_attribute_name(:email)
       %th= model_class.human_attribute_name(:country)
       %th= model_class.human_attribute_name(:city)
-      %th= model_class.human_attribute_name(:created_at)
-      %th=t '.actions', :default => t("helpers.actions")
+      %th Registrated
+      %th
   %tbody
     - @registrations.each do |registration|
       %tr
-        %td= link_to registration.id, admin_registration_path(registration)
-        %td= registration.name
-        %td= registration.last_name
+        %td= link_to registration.full_name, admin_registration_path(registration)
         %td= registration.email
         %td= registration.country
         %td= registration.city

@@ -13,6 +13,10 @@ class Registration < ActiveRecord::Base
   validates :days, :member, :need_place, numericality: { only_integer: true }
   validate  :email_regex
   
+  def full_name
+    "#{self.name} #{self.last_name}"
+  end
+  
   private 
   
   def email_regex

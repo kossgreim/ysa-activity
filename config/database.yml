@@ -1,21 +1,17 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  username: postgres
   pool: 5
 
 development:
   <<: *default
   database: ysa_activity_development
-  host: localhost
 
 test:
   <<: *default
   database: ysa_activity_test
-  host: localhost
 
 production:
   <<: *default
   database: ysa_activity
-  username: ysa_activity
   password: <%= ENV['YSA_ACTIVITY_DATABASE_PASSWORD'] %>
