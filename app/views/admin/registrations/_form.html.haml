@@ -29,10 +29,10 @@
       = f.select :days, Registration::DAYS, {}, :class => 'form-control'
   .form-group
     = f.check_box :member
-    = f.label :member, :class => 'control-label'
+    = f.label 'Are you a member?', :class => 'control-label'
   .form-group
     = f.check_box :need_place
-    = f.label :need_place, :class => 'control-label'
+    = f.label 'Do you need a place to stay?', :class => 'control-label'
   .form-group
     = f.label :comment, :class => 'control-label'
     .controls

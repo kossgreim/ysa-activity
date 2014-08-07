@@ -4,7 +4,7 @@ class Admin::RegistrationsController < ApplicationController
 
   # GET /registrations
   def index
-    @registrations = Registration.all
+    @registrations = Registration.paginate(page: params[:page]).order('id DESC')
   end
 
   # GET /registrations/1
@@ -25,7 +25,7 @@ class Admin::RegistrationsController < ApplicationController
     @registration = Registration.new(registration_params)
       if @registration.save
         if user_signed_in?
-          redirect_to @registration, notice: 'Registration was successfully created.'
+          redirect_to admin_registrations_path, notice: 'Registration was successfully created.'
         else
           redirect_to root_path, notice: "Thank you, #{@registration.name} for your registration! We're excited to see you :)"
         end
