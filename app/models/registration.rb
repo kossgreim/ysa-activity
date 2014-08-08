@@ -19,9 +19,19 @@ class Registration < ActiveRecord::Base
   
   private 
   
+  def filter(filtering_params)
+    results = self.where(nil)
+    filtering_params.each do |key, value|
+      results = results.public_send(key, value) if value.present?
+    end
+    results
+  end
+  
   def email_regex
     if email.present? and not email.match(/\A[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]+\z/)
       errors.add :email, "This is not a valid email format"
     end
   end
+  
+  
 end
