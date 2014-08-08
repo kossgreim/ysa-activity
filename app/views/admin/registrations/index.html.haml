@@ -1,15 +1,6 @@
 - model_class = Registration
 .page-header
   %h1=t '.title', :default => model_class.model_name.human.pluralize.titleize
-.row
-    %h2 Expandable when is Focus
-    %h3 Mac Search Style
-    .span12
-      %form#custom-search-form.form-search.form-horizontal.pull-right
-        .input-append.span12
-          %input.search-query.mac-style{:placeholder => "Search", :type => "text"}
-            %button.btn{:type => "submit"}
-              %i.icon-search
 %table.table.table-striped
   %thead
     %tr
