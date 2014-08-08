@@ -3,19 +3,21 @@
   %h1=t '.title', :default => model_class.model_name.human.pluralize.titleize
 %table.table.table-striped
   %thead
-    %tr
-      %th Name
-      %th= model_class.human_attribute_name(:email)
-      %th= model_class.human_attribute_name(:country)
-      %th= model_class.human_attribute_name(:city)
-      %th Registrated
-      %th
+    = form_tag admin_registrations_path, method: "get" do
+      %tr.filters
+        %th
+          %input.form-control.search-field-text{name: 'name', placeholder: "Name", :type => "text"}
+        %th
+          %input.form-control.search-field-text{name: 'last_name', placeholder: "Last Name", :type => "text"}
+        %th
+          %input.form-control.search-field-text{name: 'city', placeholder: "City", :type => "text"}
+        %th
+          %input.form-control.search-field-text{name: 'registred_at', placeholder: "Registred at", :type => "text"}
   %tbody
     - @registrations.each do |registration|
       %tr
         %td= link_to registration.full_name, admin_registration_path(registration)
         %td= registration.email
-        %td= registration.country
         %td= registration.city
         %td= registration.created_at.strftime("%B %d, %Y at %H:%M")
         %td

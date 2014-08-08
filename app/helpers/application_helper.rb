@@ -1,7 +1,11 @@
 module ApplicationHelper
   
   def set_active_nav(name)
-    'active' if name == params[:action]  
+      if !user_signed_in? && params[:controller] == 'admin/registrations' && params[:action] == 'new'
+        'active' if name == 'registration'
+      else
+        'active' if name == params[:action]
+      end
   end
   
 end
