@@ -25,17 +25,24 @@
         .controls
           = f.text_field :phone, :class => 'form-control'
       .form-group
+        = f.label :arriving_date, :class => 'control-label'
+        .controls
+          .datetimepicker.input-group.date
+            = f.text_field :arriving, :class => 'form-control'
+            %span.input-group-addon
+              %span.glyphicon.glyphicon-calendar
+      .form-group
         = f.label :country, :class => 'control-label'
         .controls
-          = f.select :country, Registration::COUNTRIES, {}, :class => 'form-control'
+          = f.select :country, Registration::COUNTRIES, {prompt:"--- Select country ---"}, :class => 'form-control'
       .form-group
         = f.label :city, :class => 'control-label'
         .controls
-          = f.select :city, Registration::CITIES, {}, :class => 'form-control'
+          = f.select :city, Registration::CITIES, {prompt:"--- Select city ---"}, :class => 'form-control'
       .form-group
         = f.label :days, :class => 'control-label'
         .controls
-          = f.select :days, Registration::DAYS, {}, :class => 'form-control'
+          = f.select :days, Registration::DAYS, {prompt:"--- days ---"}, :class => 'form-control'
       .form-group
         = f.check_box :member
         = f.label 'Are you a member?', :class => 'control-label'
