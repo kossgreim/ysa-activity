@@ -16,6 +16,7 @@ set :repository, "git@github.com:kossgreim/#{application}.git"
 set :branch, "master"
 
 set :rvm_bin_path, "/usr/local/rvm/bin"
+set :default_env, { path: "/usr/local/rvm/rubies/ruby-2.1.2/bin" }
 
 
 default_run_options[:pty] = true
