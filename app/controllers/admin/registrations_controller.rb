@@ -23,6 +23,7 @@ class Admin::RegistrationsController < ApplicationController
   # POST /registrations
   def create
     @registration = Registration.new(registration_params)
+    @registration.arriving = Time.parse(@registration.arriving.to_s) unless @registration.arriving.blank?
       if @registration.save
         if user_signed_in?
           redirect_to admin_registrations_path, notice: 'Registration was successfully created.'
@@ -59,6 +60,6 @@ class Admin::RegistrationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def registration_params
-      params.require(:registration).permit(:name, :last_name, :email, :phone, :country, :city, :member, :need_place, :days, :comment, :gender)
+      params.require(:registration).permit(:name, :last_name, :email, :phone, :country, :city, :member, :need_place, :days, :comment, :gender, :arriving)
     end
 end
