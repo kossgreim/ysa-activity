@@ -11,7 +11,7 @@
  * file per style scope.
  *
  *= require bootstrap-datetimepicker
- *=require twitter-bootstrap-static/fontawesome
+ *= require twitter-bootstrap-static/fontawesome
  *= require_tree .
  *= require_self
  */
