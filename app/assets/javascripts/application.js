@@ -19,3 +19,8 @@
 //= require_tree .
 
 
+$(function(){
+   $('.datetimepicker').datetimepicker({
+                    pick12HourFormat: false
+                });
+});
