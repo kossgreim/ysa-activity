@@ -16,3 +16,4 @@ production:
   <<: *default
   database: ysa_activity
   password: <%= ENV['YSA_ACTIVITY_DATABASE_PASSWORD'] %>
+  
