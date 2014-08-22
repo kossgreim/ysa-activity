@@ -42,6 +42,10 @@
   %br
   = @registration.days
 %p
+  %strong= model_class.human_attribute_name(:arriving) + ':'
+  %br
+  = @registration.arriving
+%p
   %strong= model_class.human_attribute_name(:comment) + ':'
   %br
   = @registration.comment

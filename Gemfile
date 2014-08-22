@@ -51,6 +51,8 @@ gem 'unicorn'
 gem 'capistrano'
 gem 'rvm-capistrano'
 
+gem 'spreadsheet'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

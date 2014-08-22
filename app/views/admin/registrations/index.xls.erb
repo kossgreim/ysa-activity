@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+          xmlns:o="urn:schemas-microsoft-com:office:office"
+          xmlns:x="urn:schemas-microsoft-com:office:excel"
+          xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+          xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Styles>
+    <Style ss:ID="Default" ss:Name="Normal">
+      <Alignment ss:Vertical="Bottom" />
+      <Borders />
+      <Font />
+      <Interior />
+      <NumberFormat />
+      <Protection />
+    </Style>
+    <Style ss:ID="s21">
+      <Font x:Family="Swiss" ss:Bold="1" />
+    </Style>
+  </Styles>
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+          <Cell ss:StyleID="s21">
+            <Data ss:Type="String">Name</Data>
+          </Cell>
+          <Cell ss:StyleID="s21">
+            <Data ss:Type="String">Last Name</Data>
+          </Cell>
+            <Cell ss:StyleID="s21">
+            <Data ss:Type="String">Email</Data>
+          </Cell>
+            <Cell ss:StyleID="s21">
+            <Data ss:Type="String">Gender</Data>
+          </Cell>
+            <Cell ss:StyleID="s21">
+            <Data ss:Type="String">Member</Data>
+          </Cell>
+            <Cell ss:StyleID="s21">
+            <Data ss:Type="String">Accommodation</Data>
+          </Cell>
+            <Cell ss:StyleID="s21">
+            <Data ss:Type="String">Country</Data>
+          </Cell>
+            <Cell ss:StyleID="s21">
+            <Data ss:Type="String">City</Data>
+          </Cell>
+            <Cell ss:StyleID="s21">
+            <Data ss:Type="String">Staying</Data>
+          </Cell>
+          <Cell ss:StyleID="s21">
+            <Data ss:Type="String">Arriving day</Data>
+          </Cell>
+            <Cell ss:StyleID="s21">
+            <Data ss:Type="String">Registred</Data>
+          </Cell>
+          <Cell ss:StyleID="s21">
+            <Data ss:Type="String">Comment</Data>
+          </Cell>
+        </Row>
+      <% @registrations.each do |reg| %>
+        <Row>
+          <Cell>
+            <Data ss:Type="String"><%= reg.name.humanize %></Data>
+          </Cell>
+          <Cell>
+            <Data ss:Type="String"><%= reg.last_name.humanize %></Data>
+          </Cell>
+            <Cell>
+            <Data ss:Type="String"><%= reg.email %></Data>
+          </Cell>
+            <Cell>
+            <Data ss:Type="String"><%= reg.gender %></Data>
+          </Cell>
+            <Cell>
+            <Data ss:Type="String"><%= reg.member ? 'Yes':'No' %></Data>
+          </Cell>
+            <Cell>
+            <Data ss:Type="String"><%= reg.need_place ? 'Yes':'No' %></Data>
+          </Cell>
+            <Cell>
+            <Data ss:Type="String"><%= reg.country %></Data>
+          </Cell>
+            <Cell>
+            <Data ss:Type="String"><%= reg.city %></Data>
+          </Cell>
+            <Cell>
+            <Data ss:Type="String"><%= reg.days %></Data>
+          </Cell>
+          <Cell>
+            <Data ss:Type="String"><%= reg.arriving %></Data>
+          </Cell>
+            <Cell>
+            <Data ss:Type="String"><%= reg.created_at.strftime("%B %d, %Y %H:%M") %></Data>
+          </Cell>
+            <Cell>
+            <Data ss:Type="String"><%= reg.comment %></Data>
+          </Cell>
+        </Row>
+      <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>

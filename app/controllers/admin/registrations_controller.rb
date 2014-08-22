@@ -5,6 +5,11 @@ class Admin::RegistrationsController < ApplicationController
   # GET /registrations
   def index
     @registrations = Registration.paginate(page: params[:page]).order('id DESC')
+    
+    respond_to do |format|
+      format.html
+      format.xls {headers["Content-Disposition"] = "attachment; filename=\"registrations_#{Time.now.to_i}.xls\"" }
+    end
   end
 
   # GET /registrations/1
@@ -23,7 +28,6 @@ class Admin::RegistrationsController < ApplicationController
   # POST /registrations
   def create
     @registration = Registration.new(registration_params)
-    @registration.arriving = Time.parse(@registration.arriving.to_s) unless @registration.arriving.blank?
       if @registration.save
         if user_signed_in?
           redirect_to admin_registrations_path, notice: 'Registration was successfully created.'
