@@ -9,6 +9,7 @@
     / Le HTML5 shim, for IE6-8 support of HTML elements
     /[if lt IE 9]
       = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js"
+      = javascript_include_tag "//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"
     = stylesheet_link_tag "application"
     = favicon_link_tag 'apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144'
     = favicon_link_tag 'apple-touch-icon-114x114-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '114x114'
@@ -16,43 +17,63 @@
     = favicon_link_tag 'apple-touch-icon-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png'
     = favicon_link_tag 'favicon.ico', :rel => 'shortcut icon'
     = javascript_include_tag "application"
-
-
-  %body
-    .navbar.navbar-default.navbar-static-top
+  %body#page-top.index
+    %nav.navbar.navbar-default.navbar-fixed-top
       .container
-        %button.navbar-toggle(type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse")
-          %span.icon-bar
-          %span.icon-bar
-          %span.icon-bar
-        = link_to 'YSA Activity', root_path, class: 'navbar-brand' 
-        .navbar-collapse.collapse.navbar-responsive-collapse
-          %ul.nav.navbar-nav
-            %li{class: set_active_nav('contact')}= link_to "Contact", contact_path
-            %li{class: set_active_nav('info')}= link_to "Info", info_path
-            %li{class: set_active_nav('registration')}= link_to "Registration", registration_path
-          - if user_signed_in?
-            %ul.nav.navbar-nav.pull-right
-              %li= link_to "Log out[#{current_user.name}]", destroy_user_session_path, method: :delete
+        .navbar-header.page-scroll
+          %button.navbar-toggle{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+            %span.sr-only Toggle navigation
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %a.navbar-brand.page-scroll{:href => "#page-top"} YSA WEEKEND
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+          %ul.nav.navbar-nav.navbar-right
+            %li.hidden
+              %a{:href => "#page-top"}
+            %li
+              %a.page-scroll{:href => "#services"} Services
+            %li
+              %a.page-scroll{:href => "#portfolio"} Portfolio
+            %li
+              %a.page-scroll{:href => "#about"} About
+            %li
+              %a.page-scroll{:href => "#team"} Team
+            %li
+              %a.page-scroll{:href => "#contact"} Contact
 
-    .container
-      .row
-        %div{class: user_signed_in? ? 'col-lg-9' : 'col-lg-12'}
-          = bootstrap_flash
-          = yield
-        - if user_signed_in?
-          .col-lg-3
-            .well.sidebar-nav
-              %h3 Admin menu
-              %ul.nav.nav-list
-                %li
-                  = link_to admin_search_path do
-                    %i.fa.fa-search
-                      Search
-                %li= link_to "Manage registrations", admin_registrations_path
-                %li= link_to "Manage users", admin_users_path
-                %li= link_to "Profile", edit_user_registration_path
-      %footer
-        %br
-        %br
-        %p &copy; Company 2014
+    = yield
+    %footer
+      .container
+        .row
+          .col-md-4
+            %span.copyright Copyright &copy; Your Website 2014
+          .col-md-4
+            %ul.list-inline.social-buttons
+              %li
+                %a{:href => "#"}
+                  %i.fa.fa-twitter
+              %li
+                %a{:href => "#"}
+                  %i.fa.fa-facebook
+              %li
+                %a{:href => "#"}
+                  %i.fa.fa-linkedin
+          .col-md-4
+            %ul.list-inline.quicklinks
+              %li
+                %a{:href => "#"} Privacy Policy
+              %li
+                %a{:href => "#"} Terms of Use
+    / jQuery Version 1.11.0
+    %script{:src => "js/jquery-1.11.0.js"}
+    / Bootstrap Core JavaScript
+    %script{:src => "js/bootstrap.min.js"}
+
+    %script{:src => "js/classie.js"}
+    %script{:src => "js/cbpAnimatedHeader.js"}
+    / Contact Form JavaScript
+    %script{:src => "js/jqBootstrapValidation.js"}
+    %script{:src => "js/contact_me.js"}
+    / Custom Theme JavaScript
+    %script{:src => "js/agency.js"}

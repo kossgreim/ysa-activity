@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.0'
 # Use postgresql as the database for Active Record
@@ -36,11 +35,6 @@ gem 'rails_12factor', group: :production
 
 gem 'will_paginate-bootstrap'
 
-gem 'momentjs-rails', '>= 2.8.1'
-
-gem 'bootstrap3-datetimepicker-rails', '~> 3.1.1'
-
-
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -51,7 +45,6 @@ gem 'unicorn'
 gem 'capistrano'
 gem 'rvm-capistrano'
 
-gem 'spreadsheet'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

@@ -1,4 +1,5 @@
 jQuery ->
-  $('.datetimepicker').datetimepicker ->
-    pick12HourFormat: true
+  $("a[rel~=popover], .has-popover").popover()
+  $("a[rel~=tooltip], .has-tooltip").tooltip()
+
      

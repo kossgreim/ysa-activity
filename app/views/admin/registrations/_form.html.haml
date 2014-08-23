@@ -27,19 +27,19 @@
       .form-group
         = f.label :arriving, :class => 'control-label'
         .controls
-          = f.select :arriving, Registration::ARRIVING, {prompt:"--- Select day ---"}, :class => 'form-control'
+          = f.select :arriving, Registration::ARRIVING, {prompt:"--- Select Day ---"}, :class => 'form-control'
       .form-group
         = f.label :country, :class => 'control-label'
         .controls
-          = f.select :country, Registration::COUNTRIES, {prompt:"--- Select country ---"}, :class => 'form-control'
+          = f.select :country, Registration::COUNTRIES, {prompt:"--- Select Country ---"}, :class => 'form-control'
       .form-group
         = f.label :city, :class => 'control-label'
         .controls
-          = f.select :city, Registration::CITIES, {prompt:"--- Select city ---"}, :class => 'form-control'
+          = f.select :city, Registration::CITIES, {prompt:"--- Select City ---"}, :class => 'form-control'
       .form-group
-        = f.label 'how many days I will_stay?', :class => 'control-label'
+        = f.label 'How many days you will stay?', :class => 'control-label'
         .controls
-          = f.select :days, Registration::DAYS, {prompt:"--- days ---"}, :class => 'form-control'
+          = f.select :days, Registration::DAYS, {prompt:"--- Select Days ---"}, :class => 'form-control'
       .form-group
         = f.check_box :member
         = f.label 'Are you a member?', :class => 'control-label'

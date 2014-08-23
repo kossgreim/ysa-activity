@@ -1,6 +1,7 @@
 class Admin::RegistrationsController < ApplicationController
   before_action :set_registration, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:new, :create]
+  layout :admin
 
   # GET /registrations
   def index
