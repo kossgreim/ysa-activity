@@ -17,9 +17,7 @@
 //= require turbolinks
 //= require_tree .
 
-
+/*
 $(function(){
-   $('.datetimepicker').datetimepicker({
-                    pick12HourFormat: false
-                });
-});
+    $("#phone").inputmask();
+});*/

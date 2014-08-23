@@ -265,7 +265,7 @@ header {
     text-align: center;
     color: #fff;
     background-attachment: scroll;
-    background-image: url(../img/header-bg.jpg);
+    background-image: image-url('theme/header-bg2.jpg');
     background-position: center center;
     background-repeat: none;
     -webkit-background-size: cover;
@@ -653,7 +653,7 @@ aside.clients img {
 
 section#contact {
     background-color: #222;
-    background-image: url(../img/map-image.png);
+    background-image: image-url('theme/map-image.png');
     background-position: center;
     background-repeat: no-repeat;
 }
@@ -773,10 +773,11 @@ ul.social-buttons li a:active {
     min-height: 100%;
     border: 0;
     border-radius: 0;
-    text-align: center;
+    //text-align: center;
     background-clip: border-box;
     -webkit-box-shadow: none;
     box-shadow: none;
+    background-color: none !important;
 }
 
 .portfolio-modal .modal-content h2 {
@@ -860,3 +861,20 @@ img::-moz-selection {
 body {
     webkit-tap-highlight-color: #fed136;
 }
+
+.info-text{
+  font-size: 22px;
+}
+
+.reg-form
+{
+  padding: 100px;
+  border: 1px solid #222;
+
+}
+
+.comming-soon{
+  border-top: 1px solid #999999;
+}
+
+label.required:after{content:"*"}
