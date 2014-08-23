@@ -1,4 +1,4 @@
-root = "/home/apps/ysa-activity/current"
+root = "~/Documents/ruby/ysa_activity"
 working_directory root
 pid "#{root}/tmp/pids/unicorn.pid"
 stderr_path "#{root}/log/unicorn.log"

@@ -5,6 +5,11 @@ class Admin::RegistrationsController < ApplicationController
   # GET /registrations
   def index
     @registrations = Registration.paginate(page: params[:page]).order('id DESC')
+    
+    respond_to do |format|
+      format.html
+      format.xls {headers["Content-Disposition"] = "attachment; filename=\"registrations_#{Time.now.to_i}.xls\"" }
+    end
   end
 
   # GET /registrations/1
@@ -23,17 +28,34 @@ class Admin::RegistrationsController < ApplicationController
   # POST /registrations
   def create
     @registration = Registration.new(registration_params)
-    @registration.arriving = Time.parse(@registration.arriving.to_s) unless @registration.arriving.blank?
+    respond_to do |format|
       if @registration.save
+        format.html { redirect_to admin_registrations_path, notice: 'Registration was successfully created.' }
+        format.js {flash[:notice] = "Thank you, #{@registration.name.capitalize} for your registration! We're excited to see you :)"}
+      else
+        format.html {
+          flash.now[:alert] = @registration.errors.full_messages.to_sentence
+          render "new"
+        }
+        format.js
+      end
+    end
+=begin
+    if @registration.save
         if user_signed_in?
           redirect_to admin_registrations_path, notice: 'Registration was successfully created.'
         else
-          redirect_to root_path, notice: "Thank you, #{@registration.name} for your registration! We're excited to see you :)"
+          redirect_to root_path(anchor: 'after-reg'), notice: "Thank you, #{@registration.name} for your registration! We're excited to see you :)"
         end
       else
         flash[:alert] = @registration.errors.full_messages.to_sentence
-        render :new
+        if user_signed_in?
+          render :new
+        else
+          render 'pages/index', layout: 'application', locals: { reg_errors: true }
+        end
       end
+=end
   end
 
   # PATCH/PUT /registrations/1

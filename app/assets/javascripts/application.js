@@ -12,15 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.easing.min
 //= require twitter/bootstrap
 //= require turbolinks
-//= require moment
-//= require bootstrap-datetimepicker
 //= require_tree .
 
-
+/*
 $(function(){
-   $('.datetimepicker').datetimepicker({
-                    pick12HourFormat: false
-                });
-});
+    $("#phone").inputmask();
+});*/

@@ -1,0 +1,11 @@
+$('#msgs').html("<%=j render 'msg_list', locals: {registration: @registration}  %>");
+
+<% unless @registration.errors.any? %>
+    $(':input').not(':button, :submit, :reset, :hidden')
+            .val('')
+            .removeAttr('checked')
+            .removeAttr('selected');
+    setTimeout(function() {
+        $('.close-modal').trigger('click');
+    }, 3000);
+<% end %>
