@@ -1,0 +1,9 @@
+- if @registration.present? && @registration.errors.any?
+  .alert.alert-danger
+    %p.text-center
+      %strong You have validation errors:
+    - @registration.errors.full_messages.each do |e|
+      %ul
+        %li=e
+- else
+  = bootstrap_flash

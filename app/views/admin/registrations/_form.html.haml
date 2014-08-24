@@ -1,60 +1,53 @@
-.well.reg-form
-  = form_for [:admin, @registration], :html => { :class => 'form-horizontal' } do |f|
-    %fieldset
-      .form-group
-        = f.label :name, :class => 'control-label'
-        .controls
-          = f.text_field :name, :class => 'form-control'
-      .form-group
-        = f.label :last_name, :class => 'control-label'
-        .controls
-          = f.text_field :last_name, :class => 'form-control'
-      .form-group
-        = f.label :gender
-        .controls
-          = "Male"
-          = f.radio_button :gender, 'male'
-          = "Female"
-          = f.radio_button :gender, 'female', :checked => true 
-      .form-group
-        = f.label :email, :class => 'control-label'
-        .controls
-          = f.text_field :email, :class => 'form-control'
-      .form-group
-        = f.label :phone, :class => 'control-label'
-        .controls
-          = f.text_field :phone, :class => 'form-control'
-      .form-group
-        = f.label :arriving_date, :class => 'control-label'
-        .controls
-          .datetimepicker.input-group.date
-            = f.text_field :arriving, :class => 'form-control'
-            %span.input-group-addon
-              %span.glyphicon.glyphicon-calendar
-      .form-group
-        = f.label :country, :class => 'control-label'
-        .controls
-          = f.select :country, Registration::COUNTRIES, {prompt:"--- Select country ---"}, :class => 'form-control'
-      .form-group
-        = f.label :city, :class => 'control-label'
-        .controls
-          = f.select :city, Registration::CITIES, {prompt:"--- Select city ---"}, :class => 'form-control'
-      .form-group
-        = f.label :days, :class => 'control-label'
-        .controls
-          = f.select :days, Registration::DAYS, {prompt:"--- days ---"}, :class => 'form-control'
-      .form-group
-        = f.check_box :member
-        = f.label 'Are you a member?', :class => 'control-label'
-      .form-group
-        = f.check_box :need_place
-        = f.label 'Do you need a place to stay?', :class => 'control-label'
-      .form-group
-        = f.label :comment, :class => 'control-label'
-        .controls
-          = f.text_area :comment, :class => 'form-control'
-      - if user_signed_in?
-        = f.submit nil, :class => 'btn btn-primary'
-        = link_to t('.cancel', :default => t("helpers.links.cancel")), admin_registrations_path, :class => 'btn btn-default'
-      - else
-        = f.submit 'Registration', :class => 'btn btn-primary'
+= form_for [:admin, Registration.new], :html => { :class => 'form-horizontal' } do |f|
+  %fieldset
+    .form-group
+      = f.label :name, :class => 'control-label'
+      .controls
+        = f.text_field :name, :class => 'form-control'
+    .form-group
+      = f.label :last_name, :class => 'control-label'
+      .controls
+        = f.text_field :last_name, :class => 'form-control'
+    .form-group
+      = f.label :gender
+      .controls
+        = "Male"
+        = f.radio_button :gender, 'male'
+        = "Female"
+        = f.radio_button :gender, 'female', :checked => true
+    .form-group
+      = f.label :email, :class => 'control-label'
+      .controls
+        = f.text_field :email, :class => 'form-control'
+    .form-group
+      = f.label :phone, :class => 'control-label'
+      .controls
+        = f.text_field :phone, :class => 'form-control', id: 'phone'
+    .form-group
+      = f.label :arriving, :class => 'control-label'
+      .controls
+        = f.select :arriving, Registration::ARRIVING, {prompt:"--- Select Day ---"}, :class => 'form-control'
+    .form-group
+      = f.label :country, :class => 'control-label'
+      .controls
+        = f.select :country, Registration::COUNTRIES, {prompt:"--- Select Country ---"}, :class => 'form-control'
+    .form-group
+      = f.label :city, :class => 'control-label'
+      .controls
+        = f.select :city, Registration::CITIES, {prompt:"--- Select City ---"}, :class => 'form-control'
+    .form-group
+      = f.label 'How many days you will stay?', :class => 'control-label'
+      .controls
+        = f.select :days, Registration::DAYS, {prompt:"--- Select Days ---"}, :class => 'form-control'
+    .form-group
+      = f.check_box :member
+      = f.label 'Are you a member?', :class => 'control-label'
+    .form-group
+      = f.check_box :need_place
+      = f.label 'Do you need a place to stay?', :class => 'control-label'
+    .form-group
+      = f.label :comment, :class => 'control-label'
+      .controls
+        = f.text_area :comment, :class => 'form-control'
+    = f.submit nil, :class => 'btn btn-primary'
+    = link_to t('.cancel', :default => t("helpers.links.cancel")), admin_registrations_path, :class => 'btn btn-default'

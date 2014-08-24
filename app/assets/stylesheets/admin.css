@@ -11,8 +11,6 @@
  * file per style scope.
  *
  *= require twitter-bootstrap-static/fontawesome
- *= require bootstrap
- *= require agency
+ *= require bootstrap-themed.min
  *= require_self
  */
-

@@ -4,55 +4,56 @@
     %meta(charset="utf-8")
     %meta(http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1")
     %meta(name="viewport" content="width=device-width, initial-scale=1.0")
-    %title= content_for?(:title) ? yield(:title) : "YsaActivity"
+    %title= content_for?(:title) ? yield(:title) : "YSA WEEKEND PRAGUE"
     = csrf_meta_tags
     / Le HTML5 shim, for IE6-8 support of HTML elements
     /[if lt IE 9]
       = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js"
+      = javascript_include_tag "//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"
     = stylesheet_link_tag "application"
     = favicon_link_tag 'apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144'
     = favicon_link_tag 'apple-touch-icon-114x114-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '114x114'
     = favicon_link_tag 'apple-touch-icon-72x72-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '72x72'
     = favicon_link_tag 'apple-touch-icon-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png'
     = favicon_link_tag 'favicon.ico', :rel => 'shortcut icon'
-    = javascript_include_tag "application"
-
-
-  %body
-    .navbar.navbar-default.navbar-static-top
+  %body#page-top.index
+    %nav.navbar.navbar-default.navbar-fixed-top
       .container
-        %button.navbar-toggle(type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse")
-          %span.icon-bar
-          %span.icon-bar
-          %span.icon-bar
-        = link_to 'YSA Activity', root_path, class: 'navbar-brand' 
-        .navbar-collapse.collapse.navbar-responsive-collapse
-          %ul.nav.navbar-nav
-            %li{class: set_active_nav('contact')}= link_to "Contact", contact_path
-            %li{class: set_active_nav('info')}= link_to "Info", info_path
-            %li{class: set_active_nav('registration')}= link_to "Registration", registration_path
-          - if user_signed_in?
-            %ul.nav.navbar-nav.pull-right
-              %li= link_to "Log out[#{current_user.name}]", destroy_user_session_path, method: :delete
+        .navbar-header.page-scroll
+          %button.navbar-toggle{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+            %span.sr-only Toggle navigation
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %a.navbar-brand.page-scroll{:href => "#page-top"} YSA WEEKEND PRAGUE
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+          %ul.nav.navbar-nav.navbar-right
+            %li.hidden
+              %a{:href => "#page-top"}
+            %li
+              %a.page-scroll{:href => "#information"} Information
+            %li
+              %a.page-scroll{:href => "#program"} Program
+            %li
+              %a.page-scroll{:href => "#contactInfo"} Contact
+            %li
+              %a.page-scroll{:href => "#contact"} Registration
 
-    .container
-      .row
-        %div{class: user_signed_in? ? 'col-lg-9' : 'col-lg-12'}
-          = bootstrap_flash
-          = yield
-        - if user_signed_in?
-          .col-lg-3
-            .well.sidebar-nav
-              %h3 Admin menu
-              %ul.nav.nav-list
-                %li
-                  = link_to admin_search_path do
-                    %i.fa.fa-search
-                      Search
-                %li= link_to "Manage registrations", admin_registrations_path
-                %li= link_to "Manage users", admin_users_path
-                %li= link_to "Profile", edit_user_registration_path
-      %footer
-        %br
-        %br
-        %p &copy; Company 2014
+    = yield
+    %footer
+      .container
+        .row
+          .col-md-4
+            %span.copyright Copyright &copy; YSA WEEKEND 2014
+          .col-md-4
+            %ul.list-inline.social-buttons
+              %li
+                %a{:href => "#"}
+                  %i.fa.fa-twitter
+              %li
+                %a{:href => "#"}
+                  %i.fa.fa-facebook
+              %li
+                %a{:href => "#"}
+                  %i.fa.fa-linkedin
+    = javascript_include_tag "application"

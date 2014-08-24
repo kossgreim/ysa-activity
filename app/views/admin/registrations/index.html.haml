@@ -6,13 +6,13 @@
     = form_tag admin_registrations_path, method: "get" do
       %tr.filters
         %th
-          %input.form-control.search-field-text{name: 'name', placeholder: "Name", :type => "text"}
+          Name
         %th
-          %input.form-control.search-field-text{name: 'last_name', placeholder: "Last Name", :type => "text"}
+          Last Name
         %th
-          %input.form-control.search-field-text{name: 'city', placeholder: "City", :type => "text"}
+          City
         %th
-          %input.form-control.search-field-text{name: 'registred_at', placeholder: "Registred at", :type => "text"}
+          Registred at
   %tbody
     - @registrations.each do |registration|
       %tr
@@ -25,5 +25,6 @@
           = link_to t('.destroy', :default => t("helpers.links.destroy")), admin_registration_path(registration), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs btn-danger'
 
 = link_to t('.new', :default => t("helpers.links.new")), new_admin_registration_path, :class => 'btn btn-primary'
-%BR
+= link_to 'Export to Excel', admin_registrations_path(format: :xls), :class => 'btn btn-info'
+%br
 = will_paginate @registrations, renderer: BootstrapPagination::Rails
