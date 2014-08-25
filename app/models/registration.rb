@@ -18,6 +18,14 @@ class Registration < ActiveRecord::Base
   def full_name
     "#{self.name} #{self.last_name}"
   end
+
+  def self.search(search)
+    if search
+      find(:all, conditions: ['name LIKE ? OR last_name LIKE ? OR email LIKE ?', "%#{search}%"])
+    else
+      find(:all)
+    end
+  end
   
   private 
   

@@ -4,6 +4,10 @@
 %table.table.table-striped
   %thead
     = form_tag admin_registrations_path, method: "get" do
+      %th
+        = text_field_tag :search, params[:search], placeholder: "Enter name or email", class: "form-control"
+      %th  
+        = submit_tag "Search", name: nil, class: "btn btn-default"
       %tr.filters
         %th
           Name

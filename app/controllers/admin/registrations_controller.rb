@@ -4,7 +4,12 @@ class Admin::RegistrationsController < ApplicationController
 
   # GET /registrations
   def index
-    @registrations = Registration.paginate(page: params[:page]).order('id DESC')
+    #@registrations = Registration.paginate(page: params[:page]).order('id DESC')
+    if params[:search]
+      @registrations = Registration.search(params[:search]).paginate(page: params[:page]).order("id DESC")
+    else
+      @registrations = Registration.paginate(page: params[:page]).order("id DESC")
+    end
     
     respond_to do |format|
       format.html
