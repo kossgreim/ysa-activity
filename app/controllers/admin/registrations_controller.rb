@@ -36,7 +36,7 @@ class Admin::RegistrationsController < ApplicationController
     respond_to do |format|
       if @registration.save
         format.html { redirect_to admin_registrations_path, notice: 'Registration was successfully created.' }
-        format.js {flash[:notice] = "Thank you, #{@registration.name.capitalize} for your registration! We're excited to see you :)"}
+        format.js {flash[:notice] = "Thank you, <b>#{@registration.name.capitalize}</b> for your registration! We're excited to see you :)"}
       else
         format.html {
           flash.now[:alert] = @registration.errors.full_messages.to_sentence
@@ -45,22 +45,6 @@ class Admin::RegistrationsController < ApplicationController
         format.js
       end
     end
-=begin
-    if @registration.save
-        if user_signed_in?
-          redirect_to admin_registrations_path, notice: 'Registration was successfully created.'
-        else
-          redirect_to root_path(anchor: 'after-reg'), notice: "Thank you, #{@registration.name} for your registration! We're excited to see you :)"
-        end
-      else
-        flash[:alert] = @registration.errors.full_messages.to_sentence
-        if user_signed_in?
-          render :new
-        else
-          render 'pages/index', layout: 'application', locals: { reg_errors: true }
-        end
-      end
-=end
   end
 
   # PATCH/PUT /registrations/1
