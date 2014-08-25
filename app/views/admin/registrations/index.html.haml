@@ -8,6 +8,7 @@
         = text_field_tag :search, params[:search], placeholder: "Enter name or email", class: "form-control"
       %th  
         = submit_tag "Search", name: nil, class: "btn btn-default"
+        = link_to "Reset", admin_registrations_path, class: "btn btn-danger"
       %tr.filters
         %th
           Name
