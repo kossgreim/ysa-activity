@@ -27,3 +27,10 @@ $(function(){
 =======
     $("#phone").inputmask();
 });*/
+
+$(function() {
+  $("#registrations_search input").keyup(function() {
+    $.get($("#registrations_search").attr("action"), $("#registrations_search").serialize(), null, "script");
+    return false;
+  });
+});

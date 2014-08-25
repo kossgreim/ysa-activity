@@ -4,7 +4,6 @@ class Admin::RegistrationsController < ApplicationController
 
   # GET /registrations
   def index
-    #@registrations = Registration.paginate(page: params[:page]).order('id DESC')
     if params[:search]
       @registrations = Registration.search(params[:search]).paginate(page: params[:page]).order("id DESC")
     else
@@ -13,6 +12,7 @@ class Admin::RegistrationsController < ApplicationController
     
     respond_to do |format|
       format.html
+      format.js
       format.xls {headers["Content-Disposition"] = "attachment; filename=\"registrations_#{Time.now.to_i}.xls\"" }
     end
   end
