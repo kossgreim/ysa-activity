@@ -21,7 +21,7 @@ class Registration < ActiveRecord::Base
 
   def self.search(search)
     if search
-      where("name LIKE ? OR last_name LIKE ? OR email LIKE ?", "%#{search}%", "%#{search}%", "%#{search}%")
+      where("name like ? or last_name like ? or email like ?", "%#{search}%", "%#{search}%", "%#{search}%")
     else
       all
     end

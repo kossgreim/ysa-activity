@@ -16,23 +16,3 @@
 //= require twitter/bootstrap
 //= require turbolinks
 //= require_tree .
-
-/*
-$(function(){
-<<<<<<< HEAD
-   $('.datetimepicker').datetimepicker({
-                    pick12HourFormat: false
-                });
-});
-=======
-    $("#phone").inputmask();
-});*/
-
-$(function() {
-  console.log($('#registrations_search'));
-    $("#registrations_search input").keyup(function() {
-      console.log('dsd');
-      $.get($("#registrations_search").attr("action"), $("#registrations_search").serialize(), null, "script");
-    return false;
-  });
-});
