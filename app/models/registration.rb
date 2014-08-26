@@ -14,6 +14,7 @@ class Registration < ActiveRecord::Base
   validates :phone, numericality: true, length: { minimum: 10, maximum: 15 }
   validates :days, :member, :need_place, numericality: { only_integer: true }
   validate  :email_regex
+  before_save { self.email = email.downcase }
   
   def full_name
     "#{self.name} #{self.last_name}"
