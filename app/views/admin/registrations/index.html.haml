@@ -5,7 +5,7 @@
   %thead
     = form_tag admin_registrations_path, method: "get", id: "registrations_search" do
       %th
-        = text_field_tag :search, params[:search], placeholder: "Enter name or email", class: "form-control"
+        = text_field_tag :search, params[:search], placeholder: "Enter name or email", class: "form-control", id: 'search-field'
       %th  
         = submit_tag "Search", name: nil, class: "btn btn-default"
         = link_to "Reset", admin_registrations_path, class: "btn btn-danger"
@@ -18,9 +18,8 @@
           City
         %th
           Registred at
-  %tbody
-    #registrations
-      =render 'registrations'
+  %tbody#registrations
+    =render 'registrations'
 
 = link_to t('.new', :default => t("helpers.links.new")), new_admin_registration_path, :class => 'btn btn-primary'
 = link_to 'Export to Excel', admin_registrations_path(format: :xls), :class => 'btn btn-info'

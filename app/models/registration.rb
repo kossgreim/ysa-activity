@@ -7,7 +7,7 @@ class Registration < ActiveRecord::Base
   
 
   #pagination
-  self.per_page = 10
+  self.per_page = 5
   
   validates :name, :last_name, :email, :phone, :country, :city, :gender, :arriving, presence: true
   validates :name, :last_name, :email, length: { in: 2..30 }
