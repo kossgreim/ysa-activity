@@ -49,12 +49,12 @@ class Admin::RegistrationsController < ApplicationController
 
   # PATCH/PUT /registrations/1
   def update
-      if @registration.update(registration_params)
-        redirect_to admin_registration_path(@registration), notice: 'Registration was successfully updated.'
-      else
-        flash[:alert] = @registration.errors.full_messages.to_sentence
-        render :edit
-      end
+    if @registration.update(registration_params)
+      redirect_to admin_registration_path(@registration), notice: 'Registration was successfully updated.'
+    else
+      flash[:alert] = @registration.errors.full_messages.to_sentence
+      render :edit
+    end
   end
 
   # DELETE /registrations/1
