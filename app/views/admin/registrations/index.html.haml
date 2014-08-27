@@ -1,23 +1,20 @@
 - model_class = Registration
 .page-header
   %h1=t '.title', :default => model_class.model_name.human.pluralize.titleize
+  %br
+  = form_tag admin_registrations_path, method: "get", id: "registrations_search" do
+    = text_field_tag :search, params[:search], placeholder: "Search: Enter name or email", class: "form-control", id: 'search-field'
 %table.table.table-striped
   %thead
-    = form_tag admin_registrations_path, method: "get", id: "registrations_search" do
+    %tr.filters
       %th
-        = text_field_tag :search, params[:search], placeholder: "Enter name or email", class: "form-control", id: 'search-field'
-      %th  
-        = submit_tag "Search", name: nil, class: "btn btn-default"
-        = link_to "Reset", admin_registrations_path, class: "btn btn-danger"
-      %tr.filters
-        %th
-          Name
-        %th
-          Email
-        %th
-          City
-        %th
-          Registred at
+        Name
+      %th
+        Email
+      %th
+        City
+      %th
+        Registred at
   %tbody#registrations
     =render 'registrations'
 
