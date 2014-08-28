@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-  root 'pages#index'
 
-  get 'info', to: 'pages#info'
-  get 'contact', to: 'pages#contact'
+  authenticated :user do
+    root :to => "admin/main#index", as: :authenticated_root
+  end
+
+  root 'pages#index'
   get 'registration', to: 'admin/registrations#new'
   
   namespace :admin do

@@ -28,9 +28,6 @@
         = link_to 'YSA WEEKEND', root_path, class: 'navbar-brand'
         .navbar-collapse.collapse.navbar-responsive-collapse
           %ul.nav.navbar-nav
-            %li{class: set_active_nav('contact')}= link_to "Contact", contact_path
-            %li{class: set_active_nav('info')}= link_to "Info", info_path
-            %li{class: set_active_nav('registration')}= link_to "Registration", registration_path
           - if user_signed_in?
             %ul.nav.navbar-nav.pull-right
               %li= link_to "Log out[#{current_user.name}]", destroy_user_session_path, method: :delete
@@ -45,13 +42,8 @@
             .well.sidebar-nav
               %h3 Admin menu
               %ul.nav.nav-list
-                %li
-                  = link_to admin_search_path do
-                    %i.fa.fa-search
-                      Search
                 %li= link_to "Manage registrations", admin_registrations_path
                 %li= link_to "Manage users", admin_users_path
-                %li= link_to "Profile", edit_user_password_path
       %footer
         %br
         %br

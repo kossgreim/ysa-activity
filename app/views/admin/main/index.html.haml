@@ -1,2 +1,39 @@
-%h1 Admin::Main#index
-%p Find me in app/views/admin/main/index.html.haml
+.panel.panel-default
+  .panel-heading
+    %h3.panel-title Summary information
+  .panel-body
+    %table.table
+      %tr
+        %th
+          All registrations
+        %td
+          = @all
+      %tr
+        %th
+          Need accommodation
+        %td
+          = @need_place
+      %tr
+        %th
+          Man
+        %td
+          = @man
+      %tr
+        %th
+          Woman
+        %td
+          = @woman
+      %tr
+        %th
+          Arriving on Friday
+        %td
+          = @friday
+      %tr
+        %th
+          Arriving on Saturday
+        %td
+          = @saterday
+
+
+
+
