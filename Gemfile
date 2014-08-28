@@ -41,6 +41,7 @@ gem 'will_paginate-bootstrap'
 
 # Use unicorn as the app server
 gem 'unicorn', '4.7.0'
+gem 'kgio', '2.8.1'
 
 gem 'capistrano', '~> 3.1.0'
 gem 'capistrano-bundler', '~> 1.1.2'
