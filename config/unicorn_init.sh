@@ -18,7 +18,7 @@ set -e
 # since nginx and unicorn accept the same signals
 
 TIMEOUT=${TIMEOUT-60}
-APP_ROOT=/home/app/public_html/app_production/current
+APP_ROOT=/home/deploy/apps/ysa-activity/current
 PID=$APP_ROOT/tmp/pids/unicorn.pid
 CMD="$APP_ROOT/bin/unicorn -D -c $APP_ROOT/config/server/unicorn.rb -E production"
 action="$1"
