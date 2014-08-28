@@ -36,3 +36,4 @@ config/database.yml
 .rvmrc
 database.yml
 .idea/
+/config/deploy/production.rb
