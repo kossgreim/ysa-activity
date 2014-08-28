@@ -1,15 +1,24 @@
-root = "/home/deploy/apps/ysa_activity/current"
-working_directory root
-pid "#{root}/tmp/pids/unicorn.pid"
-stderr_path "#{root}/log/unicorn.log"
-stdout_path "#{root}/log/unicorn.log"
+# Set the working application directory
+# working_directory "/path/to/your/app"
+working_directory "/home/deploy/apps/ysa-acivity/current"
 
+# Unicorn PID file location
+# pid "/path/to/pids/unicorn.pid"
+pid "/home/deploy/apps/ysa-acivity/shared/pids/unicorn.pid"
+
+# Path to logs
+# stderr_path "/path/to/log/unicorn.log"
+# stdout_path "/path/to/log/unicorn.log"
+stderr_path "/home/deploy/apps/ysa-acivity/current/log/unicorn.log"
+stdout_path "/home/deploy/apps/ysa-acivity/current/log/unicorn.log"
+
+# Unicorn socket
 listen "/tmp/unicorn.ysa-activity.sock"
-worker_processes 2
-timeout 30
+listen "/tmp/unicorn.ysa-activity.sock"
 
-# Force the bundler gemfile environment variable to
-# reference the capistrano "current" symlink
-before_exec do |_|
-  ENV["BUNDLE_GEMFILE"] = File.join(root, 'Gemfile')
-end
+# Number of processes
+# worker_processes 4
+worker_processes 2
+
+# Time-out
+timeout 30
