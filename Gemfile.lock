@@ -1,12 +1,4 @@
 GIT
-  remote: git://github.com/capistrano/rvm.git
-  revision: dc35ec5e7a74a422250bd6ff5e8885c8b742d0e5
-  specs:
-    capistrano-rvm (0.1.1)
-      capistrano (~> 3.0)
-      sshkit (~> 1.2)
-
-GIT
   remote: git://github.com/seyhunak/twitter-bootstrap-rails.git
   revision: 1d93c5a77049b3d21d17c847ad0531d7714fa229
   branch: bootstrap3
@@ -59,6 +51,9 @@ GEM
     capistrano-rails (1.1.1)
       capistrano (~> 3.1)
       capistrano-bundler (~> 1.1)
+    capistrano-rvm (0.1.1)
+      capistrano (~> 3.0)
+      sshkit (~> 1.2)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -184,7 +179,7 @@ DEPENDENCIES
   capistrano (~> 3.1.0)
   capistrano-bundler (~> 1.1.2)
   capistrano-rails (~> 1.1.1)
-  capistrano-rvm!
+  capistrano-rvm
   coffee-rails (~> 4.0.0)
   devise
   haml-rails
