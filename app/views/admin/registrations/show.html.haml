@@ -1,54 +1,56 @@
 - model_class = Registration
-.page-header
-  %h1=t '.title', :default => model_class.model_name.human.titleize
-%p
-  %strong= model_class.human_attribute_name(:name) + ':'
-  %br
-  = @registration.name
-%p
-  %strong= model_class.human_attribute_name(:last_name) + ':'
-  %br
-  = @registration.last_name
-%p
-  %strong= model_class.human_attribute_name(:gender) + ':'
-  %br
-  = @registration.gender.capitalize unless @registration.gender.blank?
-%p
-  %strong= model_class.human_attribute_name(:email) + ':'
-  %br
-  = @registration.email
-%p
-  %strong= model_class.human_attribute_name(:phone) + ':'
-  %br
-  = @registration.phone
-%p
-  %strong= model_class.human_attribute_name(:country) + ':'
-  %br
-  = @registration.country
-%p
-  %strong= model_class.human_attribute_name(:city) + ':'
-  %br
-  = @registration.city
-%p
-  %strong= model_class.human_attribute_name(:member) + ':'
-  %br
-  = @registration.member ? 'Yes' : 'No'
-%p
-  %strong= model_class.human_attribute_name(:need_place) + ':'
-  %br
-  = @registration.need_place ? 'Yes' : 'No'
-%p
-  %strong= model_class.human_attribute_name(:days) + ':'
-  %br
-  = @registration.days
-%p
-  %strong= model_class.human_attribute_name(:arriving) + ':'
-  %br
-  = @registration.arriving
-%p
-  %strong= model_class.human_attribute_name(:comment) + ':'
-  %br
-  = @registration.comment
+.panel.panel-default
+  .panel-heading
+    %h3.panel-title=t '.title', :default => model_class.model_name.human.titleize
+  .panel-body
+    %table.table
+      %tr
+        %th= model_class.human_attribute_name(:name) + ':'
+        %td= @registration.name
+      %tr
+        %th= model_class.human_attribute_name(:last_name) + ':'
+        %td
+          = @registration.last_name
+      %tr
+        %th= model_class.human_attribute_name(:gender) + ':'
+        %td
+          = @registration.gender.capitalize unless @registration.gender.blank?
+      %tr
+        %th= model_class.human_attribute_name(:email) + ':'
+        %td
+          = @registration.email
+      %tr
+        %th= model_class.human_attribute_name(:phone) + ':'
+        %td
+          = @registration.phone
+      %tr
+        %th= model_class.human_attribute_name(:country) + ':'
+        %td
+          = @registration.country
+      %tr
+        %th= model_class.human_attribute_name(:city) + ':'
+        %td
+          = @registration.city
+      %tr
+        %th= model_class.human_attribute_name(:member) + ':'
+        %td
+          = @registration.member ? 'Yes' : 'No'
+      %tr
+        %th= model_class.human_attribute_name(:need_place) + ':'
+        %td
+          = @registration.need_place ? 'Yes' : 'No'
+      %tr
+        %th= model_class.human_attribute_name(:days) + ':'
+        %td
+          = @registration.days
+      %tr
+        %th= model_class.human_attribute_name(:arriving) + ':'
+        %td
+          = @registration.arriving
+      %tr
+        %th= model_class.human_attribute_name(:comment) + ':'
+        %td
+          = @registration.comment
 
 %hr
 = link_to t('.back', :default => t("helpers.links.back")), admin_registrations_path, :class => 'btn btn-default'

@@ -1,22 +1,23 @@
 - model_class = Registration
 .page-header
   %h1=t '.title', :default => model_class.model_name.human.pluralize.titleize
-  %br
-  = form_tag admin_registrations_path, method: "get", id: "registrations_search" do
-    = text_field_tag :search, params[:search], placeholder: "Search: Enter name or email", class: "form-control", id: 'search-field'
-%table.table.table-striped
-  %thead
-    %tr.filters
-      %th
-        Name
-      %th
-        Email
-      %th
-        City
-      %th
-        Registred at
-  %tbody#registrations
-    =render 'registrations'
+.panel.panel-default
+  %table.table.table-striped
+    %thead
+      = form_tag admin_registrations_path, method: "get", id: "registrations_search" do
+        = text_field_tag :search, params[:search], placeholder: "Search: Enter name or email", class: "form-control", id: 'search-field'
+        %br
+        %tr.filters
+          %th
+            Name
+          %th
+            Email
+          %th
+            City
+          %th
+            Registred at
+    %tbody#registrations
+      = render 'registrations'
 
 = link_to t('.new', :default => t("helpers.links.new")), new_admin_registration_path, :class => 'btn btn-primary'
 = link_to 'Export to Excel', admin_registrations_path(format: :xls), :class => 'btn btn-info'

@@ -36,7 +36,7 @@ class Admin::RegistrationsController < ApplicationController
     respond_to do |format|
       if @registration.save
         format.html { redirect_to admin_registrations_path, notice: 'Registration was successfully created.' }
-        format.js {flash[:notice] = "Thank you, <b>#{@registration.name.capitalize}</b> for your registration! We're excited to see you :)"}
+        format.js {@msg = "Thank you for your registration! We're excited to see you :)"}
       else
         format.html {
           flash.now[:alert] = @registration.errors.full_messages.to_sentence
