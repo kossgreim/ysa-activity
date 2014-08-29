@@ -7,7 +7,7 @@ class Registration < ActiveRecord::Base
   
 
   #pagination
-  self.per_page = 5
+  self.per_page = 10
   
   validates :name, :last_name, :email, :phone, :country, :city, :gender, :arriving, presence: true
   validates :name, :last_name, :email, length: { in: 2..30 }
@@ -21,11 +21,7 @@ class Registration < ActiveRecord::Base
   end
 
   def self.search(search)
-    if search
-      where("name ilike ? or last_name ilike ? or email ilike ?", "%#{search}%", "%#{search}%", "%#{search}%")
-    else
-      all
-    end
+    where("name ilike ? or last_name ilike ? or email ilike ?", "%#{search}%", "%#{search}%", "%#{search}%")
   end
   
   private 

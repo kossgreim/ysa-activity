@@ -1,21 +1,21 @@
 - model_class = Registration
 .page-header
   %h1=t '.title', :default => model_class.model_name.human.pluralize.titleize
+  .col-xs-4
+    = form_tag admin_registrations_path, method: "get", id: "registrations_search" do
+      = text_field_tag :search, params[:search], placeholder: "Search: Enter name or email", class: "form-control", id: 'search-field'
 .panel.panel-default
   %table.table.table-striped
     %thead
-      = form_tag admin_registrations_path, method: "get", id: "registrations_search" do
-        = text_field_tag :search, params[:search], placeholder: "Search: Enter name or email", class: "form-control", id: 'search-field'
-        %br
-        %tr.filters
-          %th
-            Name
-          %th
-            Email
-          %th
-            City
-          %th
-            Registred at
+      %tr.filters
+        %th
+          Name
+        %th
+          Email
+        %th
+          City
+        %th
+          Registred at
     %tbody#registrations
       = render 'registrations'
 
