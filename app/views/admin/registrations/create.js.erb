@@ -1,11 +1,16 @@
-$('#msgs').html("<%=j render 'msg_list', locals: {registration: @registration}  %>");
-
-<% unless @registration.errors.any? %>
+<% if @registration.errors.empty? %>
     $(':input').not(':button, :submit, :reset, :hidden')
             .val('')
             .removeAttr('checked')
             .removeAttr('selected');
-    setTimeout(function() {
-        $('.close-modal').trigger('click');
-    }, 3000);
+
+    $('#close-form').trigger('click');
+    $('#message').html('<%= @msg.present? ? @msg : '' %>');
+    setTimeout(function(){
+        $('#success-msg').modal();
+    }, 500);
+
+<% else %>
+$('#msgs').html("<%=j render 'msg_list', locals: {registration: @registration}  %>");
+$("#portfolioModal1").animate({ scrollTop: 0 }, "slow");
 <% end %>
