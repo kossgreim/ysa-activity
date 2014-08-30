@@ -33,7 +33,7 @@ class Registration < ActiveRecord::Base
   
   validates :name, :last_name, :email, :phone, :country, :city, :gender, :arriving, presence: true
   validates :name, :last_name, :email, length: { in: 2..30 }
-  validates :phone, numericality: true, length: { minimum: 10, maximum: 15 }
+  validates :phone, numericality: true, length: { minimum: 9, maximum: 15 }
   validates :days, :member, :need_place, numericality: { only_integer: true }
   validate  :email_regex
   before_save { self.email = email.downcase }
