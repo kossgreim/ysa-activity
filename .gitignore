@@ -35,5 +35,6 @@ config/database.yml
 # unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
 .rvmrc
 database.yml
+/config/database.yml
 .idea/
 /config/deploy/production.rb
