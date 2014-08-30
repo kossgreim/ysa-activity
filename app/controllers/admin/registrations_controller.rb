@@ -36,7 +36,6 @@ class Admin::RegistrationsController < ApplicationController
     @registration = Registration.new(registration_params)
     respond_to do |format|
       if @registration.save
-        Notify.welcome(@registration).deliver
         format.html { redirect_to admin_registrations_path, notice: 'Registration was successfully created.' }
         format.js {@msg = "Thank you for your registration! We're excited to see you :)"}
       else
