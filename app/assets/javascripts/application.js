@@ -15,4 +15,4 @@
 //= require jquery.easing.min
 //= require twitter/bootstrap
 //= require turbolinks
-//= require_tree .
+//= require_tree ./theme

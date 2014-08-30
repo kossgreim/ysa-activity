@@ -24,7 +24,8 @@
         %p.info-text
           Anyone who is between the ages of
           %strong
-            18 and 30 years, not married and agrees to keep our Code of Conduct
+            18 and 30 years, not married and agrees to keep our
+          %strong= link_to 'Code of Conduct', '#portfolioModal2', data:{toggle: 'modal'}
           can come to the activities and join us.
           Think about your clothes and dress according to the church standards
           See and follow:
@@ -111,4 +112,17 @@
             .panel.panel-default.col-md-12.col-sm-12.reg-form
               .col-md-10.col-sm-12.col-md-offset-1
                 = render 'admin/registrations/frontend_form'
+
+#portfolioModal2.portfolio-modal.modal.fade{"aria-hidden" => "true", :role => "dialog", :tabindex => "-1"}
+  .modal-content
+    .close-modal{"data-dismiss" => "modal"}
+      .lr
+        .rl
+    .container
+      .row
+        .col-lg-10.col-lg-offset-1
+          .modal-body
+            %h2.text-center Code of Conduct
+            = render 'code'
+
 = render 'admin/registrations/success_reg'

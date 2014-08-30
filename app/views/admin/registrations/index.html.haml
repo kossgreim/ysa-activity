@@ -1,25 +1,12 @@
 - model_class = Registration
 .page-header
   %h1=t '.title', :default => model_class.model_name.human.pluralize.titleize
-  .col-xs-4
-    = form_tag admin_registrations_path, method: "get", id: "registrations_search" do
-      = text_field_tag :search, params[:search], placeholder: "Search: Enter name or email", class: "form-control", id: 'search-field'
-.panel.panel-default
-  %table.table.table-striped
-    %thead
-      %tr.filters
-        %th
-          Name
-        %th
-          Email
-        %th
-          City
-        %th
-          Registred at
-    %tbody#registrations
-      = render 'registrations'
+  = form_tag admin_registrations_path, method: "get", id: "registrations_search" do
+    = text_field_tag :search, params[:search], placeholder: "Start typing name or email", class: "form-control", id: 'search-field'
+  %br
+
+  #registrations
+    = render 'registrations'
 
 = link_to t('.new', :default => t("helpers.links.new")), new_admin_registration_path, :class => 'btn btn-primary'
 = link_to 'Export to Excel', admin_registrations_path(format: :xls), :class => 'btn btn-info'
-%br
-= will_paginate @registrations, renderer: BootstrapPagination::Rails

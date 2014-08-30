@@ -42,8 +42,14 @@ class Admin::UsersController < ApplicationController
 
   # DELETE /admin/users/1
   def destroy
-    @user.destroy!
-    redirect_to admin_users_url, notice: 'User was successfully destroyed.'
+    if User.count == 1 || current_user.id == @user.id
+      flash[:alert] = 'You can\'t delete yourself'
+    else
+      @user.destroy!
+      flash[:notice] = 'User was successfully destroyed.'
+    end
+
+    redirect_to admin_users_url
   end
 
   private

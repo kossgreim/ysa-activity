@@ -14,11 +14,4 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require turbolinks
-
-
-$(function() {
-  $("#search-field").keyup(function() {
-    $.get($("#registrations_search").attr("action"), $("#registrations_search").serialize(), null, "script");
-    return false;
-  });
-});
+//= require main

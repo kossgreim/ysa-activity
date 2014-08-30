@@ -1,7 +1,29 @@
 class Registration < ActiveRecord::Base
   #data for select
   DAYS = [3, 2, 1]
-  CITIES = ['Prague', 'Liberec', 'Brno', 'Plzen']
+  CITIES = [
+      'Banska Bystrica',
+      'Bratislava',
+      'Brno',
+      'Ceske Budejovice',
+      'Frydek Mistek',
+      'Hradec Kralove',
+      'Jicin',
+      'Kosice',
+      'Liberec',
+      'Martin',
+      'Mlada Boleslav',
+      'Olomouc',
+      'Ostrava',
+      'Pardubice',
+      'Plzen',
+      'Prague',
+      'Trebic',
+      'Trencin',
+      'Zilina',
+      'Zlin'
+  ]
+
   COUNTRIES = ['Czech Republic', 'Slovakia']
   ARRIVING = ['Friday', 'Saturday', 'Sunday']
   

@@ -34,18 +34,22 @@
 
     .container
       .row
-        %div{class: user_signed_in? ? 'col-lg-9' : 'col-lg-12'}
+        %div{class: user_signed_in? ? 'col-md-9' : 'col-md-12'}
           = bootstrap_flash
           = yield
-        - if user_signed_in?
-          .col-lg-3
-            .well.sidebar-nav
-              %h3 Admin menu
-              %ul.nav.nav-list
-                %li= link_to "Overview", root_path
-                %li= link_to "Manage registrations", admin_registrations_path
-                %li= link_to "Manage users", admin_users_path
-      %footer
-        %br
-        %br
-        %p &copy; Company 2014
+        .col-md-3
+          - if user_signed_in?
+            %br
+            %ul.nav.nav-pills.nav-stacked
+              %li{class: set_active_nav('admin/main')}
+                = link_to root_path do
+                  %i.fa.fa-tachometer.fa-fw
+                  Overview
+              %li{class: set_active_nav('admin/registrations')}
+                = link_to  admin_registrations_path do
+                  %i.fa.fa-list-alt.fa-fw
+                  Manage registrations
+              %li{class: set_active_nav('admin/users')}
+                = link_to admin_users_path do
+                  %i.fa.fa-users.fa-fw
+                  Admins

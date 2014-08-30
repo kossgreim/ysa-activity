@@ -1,1 +1,1 @@
-$("#registrations").html("<%=j render 'registrations' %>");
+$("#registrations").html("<%=j render 'registrations', locals: {search: @params} %>");
