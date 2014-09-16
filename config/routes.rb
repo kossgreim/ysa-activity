@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   end
 
   root 'pages#index'
+  get "program", to: 'pages#program', as: :program
   get 'registration', to: 'admin/registrations#new'
   
   namespace :admin do

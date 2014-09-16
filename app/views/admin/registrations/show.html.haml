@@ -36,7 +36,7 @@
         %td
           = @registration.member ? 'Yes' : 'No'
       %tr
-        %th= model_class.human_attribute_name(:need_place) + ':'
+        %th Accommodation:
         %td
           = @registration.need_place ? 'Yes' : 'No'
       %tr
@@ -47,6 +47,10 @@
         %th= model_class.human_attribute_name(:arriving) + ':'
         %td
           = @registration.arriving
+      %tr
+        %th Date of registration:
+        %td
+          = @registration.created_at.strftime("%B %d, %Y at %H:%M")
       %tr
         %th= model_class.human_attribute_name(:comment) + ':'
         %td
