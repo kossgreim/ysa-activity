@@ -10,12 +10,19 @@
   .container
     .row
       .col-lg-12.text-center
-        %h2.section-heading Information
+        %h2.section-heading Information / Informace
         %h3.section-subheading.text-muted
-          „ …I have labored without ceasing, that I might bring souls unto repentance;
+          I have labored without ceasing, that I might bring souls unto repentance;
           %br
           %br
-          that I might bring them to taste of the exceeding joy of which I did taste …“
+          that I might bring them to taste of the exceeding joy of which I did taste
+          %br
+          %br
+          %br
+          „…od oné doby až do nynějška jsem bez ustání pracoval, abych mohl přiváděti duše ku pokání;
+          %br
+          %br
+          abych je mohl přiváděti k tomu, aby okusily onu nesmírnou radost, kterou jsem okusil já…“
     .row.text-center
       .info-text.text-muted
         %p.info-text
@@ -33,29 +40,60 @@
           = link_to 'The Strength of Youth pamphlet',
           "https://www.lds.org/manual/for-the-strength-of-youth-fulfilling-our-duty-to-god?lang=eng&query=strength+of+youth",
           target: '_blank'
+    .row.text-center
+      .info-text.text-muted
+        %p.info-text
+          Okrsek praha vás zve napražský víkend mladých svobodných dospělých, který bude plný zábavy, duchovních věcí, úžasných zkušeností a přátel.
+          Nejste členem této církve? prosím přijďte s jedním z našich členů!
+        %p.info-text
+          %strong
+            Kdokoliv ve věku od 18 do 30ti let,
+            svobodný a kdo souhlasí s dodržováním našeho
+          %strong= link_to 'kodexu chování', '#portfolioModal4', data:{toggle: 'modal'}
+          může přijít a připojit se k nám!
+          Popřemýslejte o vhodném oblečení v souladu s církevními měřítky
+          Podívejte se a řiďte se podle:
+          %br
+          = link_to 'brožurky pro posílení mládeže',
+          "https://www.lds.org/manual/for-the-strength-of-youth-fulfilling-our-duty-to-god?lang=eng&query=strength+of+youth",
+          target: '_blank'
 
     %hr
     .row
       .col-md-4.col-sm-6.portfolio-item
         .portfolio-caption
-          %h4.text-center TIME
+          %h4.text-center TIME / ČAS
           %p.text-muted
             Friday— arrivals around 17:00
             The end will be after Sunday church
-      .col-md-4.col-sm-6.portfolio-item
-        .portfolio-caption
-          %h4.text-center FOOD
           %p.text-muted
-            All the food will be provided by organisers of the Activity
+            Pátek – příjezd kolem 17:00
+            Konec po nedělním shromáždění
       .col-md-4.col-sm-6.portfolio-item
         .portfolio-caption
-          %h4.text-center ACCOMMODATION
+          %h4.text-center FOOD / JÍDLO
+          %p.text-muted
+            All the food will be provided by organisers of the Activity.
+            %br
+            %strong No food will be provided on Sunday (Fast Sunday)
+          %p.text-muted
+            Prosím uveďte jakékoliv alergie při vyplňování registrace online. veškeré jídlo bude poskytnuto.
+            %br
+            %strong Žádné jídlo nebude poskytnuto v neděli (Postní Neděle)
+      .col-md-4.col-sm-6.portfolio-item
+        .portfolio-caption
+          %h4.text-center ACCOMMODATION / UBYTOVÁNÍ
           %p.text-muted
             If you send your registrations by
             %strong
               20.09.2014
             %br
             All the housing will be prepared for you with families in the branch.
+          %p.text-muted
+            Pokud pošlete svou registraci do
+            %strong 20.9.2014
+            %br
+            Veškeré ubytování bude pro vás připraveno u rodin v odbočce.
 
 
 / Portfolio Grid Section
@@ -73,7 +111,7 @@
           = image_tag 'sc.jpg', width: '400px', height: '260px', class: 'img-responsive'
         .portfolio-caption
           %h4.text-center Activity Program
-          %p.text-center.text-muted (Click on image to make bigger)
+          %p.text-center.text-muted (Click on the image to make it bigger)
       .col-md-4.col-sm-6.portfolio-item
 
 
@@ -142,6 +180,16 @@
             .col-md-2.col-md-offset-5
               = link_to 'PDF file', program_path, class: 'btn btn-primary btn-block', target: '_blank'
             = image_tag 'sc.jpg', class: 'img-responsive'
+#portfolioModal4.portfolio-modal.modal.fade{"aria-hidden" => "true", :role => "dialog", :tabindex => "-1"}
+  .modal-content
+    .close-modal{"data-dismiss" => "modal"}
+      .lr
+        .rl
+    .container
+      .row
+        .col-lg-10.col-lg-offset-1
+          .modal-body
+            = image_tag 'cd.jpg'
 
 
 = render 'admin/registrations/success_reg'
